@@ -13,6 +13,7 @@
 using namespace std;
 
 class LL{
+	friend class Game;
 	NodeL *first;
 	NodeL *last;
 	int size;

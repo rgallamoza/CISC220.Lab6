@@ -13,6 +13,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <time.h>
 
 using namespace std;
 
@@ -60,12 +61,18 @@ void Game::startGame() {
 
 
 void Game::getWords() {
+	time_t timer = time(NULL);
 	string s;
 	cin >> s;
 	while (s != "-1") {
-		wordlist.push(s);
-		cin >> s;
-		//cout << endl;
+		if(difftime(time(NULL),timer)>10){	//10 second time limit
+			cout << "Sorry! Time's up! " << s << " will not be counted in the final score." << endl;
+			break;
+		}
+		else{
+			wordlist.push(s);
+			cin >> s;
+		}
 	}
 }
 

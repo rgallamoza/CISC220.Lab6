@@ -13,6 +13,7 @@
 using namespace std;
 
 class AVLTree{
+	friend class Game;
 	NodeT *root;
 	bool AVLflag;
 public:
